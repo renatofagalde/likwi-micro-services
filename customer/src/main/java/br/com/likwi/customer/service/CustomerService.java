@@ -1,16 +1,18 @@
 package br.com.likwi.customer.service;
 
+import br.com.likwi.clients.fraud.FraudCheckResponse;
+import br.com.likwi.clients.fraud.FraudClient;
 import br.com.likwi.customer.config.CustomerConfig;
 import br.com.likwi.customer.dao.CustomerRepository;
 import br.com.likwi.customer.model.Customer;
 import br.com.likwi.customer.record.CustomerRegistrationRequest;
-import br.com.likwi.customer.record.FraudCheckResponse;
 import org.springframework.stereotype.Service;
 
 @Service
 public record CustomerService(
         CustomerRepository customerRepository,
-        CustomerConfig customerConfig) {
+        CustomerConfig customerConfig,
+        FraudClient fraudClient) {
 
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
 
@@ -23,11 +25,8 @@ public record CustomerService(
         //todo: checks
         customerRepository.saveAndFlush(customer);
 
-        final FraudCheckResponse fraudCheckResponse = this.customerConfig().restTemplate().getForObject(
-                "http://FRAUD/api/v001/fraud-check/{customerId}",
-                FraudCheckResponse.class, customer.getId()
-
-        );
+        //using FeignClient class
+        final FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(customer.getId());
         if (fraudCheckResponse.isFraudster())
             throw new IllegalStateException("Fraudster");
     }

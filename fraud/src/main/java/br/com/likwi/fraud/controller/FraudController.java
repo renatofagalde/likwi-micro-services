@@ -1,7 +1,7 @@
 package br.com.likwi.fraud.controller;
 
+import br.com.likwi.clients.fraud.FraudCheckResponse;
 import br.com.likwi.fraud.record.FraudCheckHistoryService;
-import br.com.likwi.fraud.record.FraudCheckResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
