@@ -17,3 +17,6 @@ Restart the containers using the following command:
 docker-compose up -d
 
 *** HOW CLEAN DOCKER ****
+
+zipkin: trace
+#  in terminal(cli): docker logs zipkin

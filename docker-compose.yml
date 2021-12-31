@@ -29,6 +29,7 @@ services:
     networks:
       - postgres
     restart: unless-stopped
+#  in terminal(cli): docker logs zipkin
   zipkin:
     image: openzipkin/zipkin
     container_name: zipkin
