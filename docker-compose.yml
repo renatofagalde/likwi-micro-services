@@ -15,7 +15,6 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -30,11 +29,9 @@ services:
     networks:
       - postgres
     restart: unless-stopped
-
 networks:
   postgres:
     driver: bridge
-
 volumes:
   postgres:
   pgadmin:
