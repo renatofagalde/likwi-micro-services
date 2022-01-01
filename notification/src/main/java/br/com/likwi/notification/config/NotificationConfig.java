@@ -1,6 +1,6 @@
 package br.com.likwi.notification.config;
 
-import lombok.Data;
+import lombok.Getter;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Data
+@Getter
 public class NotificationConfig {
 
     //these properties came from application.yml
@@ -31,7 +31,7 @@ public class NotificationConfig {
 
     @Bean
     public Queue notificationQueue() {
-        return new Queue(this.notificationQueue)
+        return new Queue(this.notificationQueue);
     }
 
     @Bean

@@ -19,7 +19,7 @@ spring:
   zipkin:
     base-url: http://localhost:9411
   rabbitmq:
-    address-shuffle-mode:
+    addresses: localhost:5672
 
 eureka:
   client:

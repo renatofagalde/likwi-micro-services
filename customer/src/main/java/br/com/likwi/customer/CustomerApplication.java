@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication
+// need this to inject RabbitMQMessageProducer
+@SpringBootApplication(scanBasePackages = {
+        "br.com.likwi.customer",
+        "br.com.likwi.advancedMessageQueueProtocol"
+})
 @EnableEurekaClient
 @EnableFeignClients(
         basePackages = "br.com.likwi.clients"
