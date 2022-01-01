@@ -1,6 +1,5 @@
 server:
   port: 8083
-
 spring:
   application:
     name: api-gateway
@@ -12,7 +11,7 @@ spring:
         - id: customer
           uri: lb://CUSTOMER
           predicates:
-            - Path=/api/v001/customer/**
+            - Path=/api/v001/customers/**
 eureka:
   client:
     service-url:
