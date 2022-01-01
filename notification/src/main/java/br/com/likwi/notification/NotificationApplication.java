@@ -24,7 +24,7 @@ public class NotificationApplication {
         return args -> {
 
             producer.publish(new Person("Lara",22),
-                    notificationConfig.getInteralExchange(),
+                    notificationConfig.getInternalExchange(),
                     notificationConfig.getInternalNotificationRoutingKey());
         };
     }

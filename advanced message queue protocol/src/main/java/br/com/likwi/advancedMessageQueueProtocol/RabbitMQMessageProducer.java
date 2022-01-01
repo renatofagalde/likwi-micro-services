@@ -18,15 +18,12 @@ public class RabbitMQMessageProducer {
                         String exchange,
                         String routingKey) {
         log.info(MessageFormat.format(
-                "Publish to {0} using routing key {1}\n\t Payload {2}",exchange,routingKey,payload));
+                "Publishing to {0} using routing key {1} Payload {2}",exchange,routingKey,payload));
 
-        this.amqpTemplate.convertAndSend(
-                exchange, routingKey, payload
-        );
+        this.amqpTemplate.convertAndSend(exchange, routingKey, payload);
 
         log.info(MessageFormat.format(
-                "Published to {0} using routing key {1}\n\t Payload {2}",exchange,routingKey,payload));
-
+                "Published to {0} using routing key {1} Payload {2}",exchange,routingKey,payload));
 
     }
 }

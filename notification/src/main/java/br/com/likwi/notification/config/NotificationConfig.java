@@ -1,6 +1,5 @@
 package br.com.likwi.notification.config;
 
-import lombok.Getter;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -10,13 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Getter
 public class NotificationConfig {
 
     //these properties came from application.yml
 
     @Value("${rabbitmq.exchanges.internal}")
-    private String interalExchange;
+    private String internalExchange;
 
     @Value("${rabbitmq.queues.notification}")
     private String notificationQueue;
@@ -24,9 +22,21 @@ public class NotificationConfig {
     @Value("${rabbitmq.routing-keys.internal-notification}")
     private String internalNotificationRoutingKey;
 
+    public String getInternalExchange() {
+        return internalExchange;
+    }
+
+    public String getNotificationQueue() {
+        return notificationQueue;
+    }
+
+    public String getInternalNotificationRoutingKey() {
+        return internalNotificationRoutingKey;
+    }
+
     @Bean
     public TopicExchange internalTopicExchange() {
-        return new TopicExchange(this.interalExchange);
+        return new TopicExchange(this.internalExchange);
     }
 
     @Bean
