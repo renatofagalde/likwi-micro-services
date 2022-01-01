@@ -15,6 +15,7 @@
         <module>clients</module>
         <module>notification</module>
         <module>APIGateWay</module>
+        <module>advanced message queue protocol</module>
     </modules>
 
     <name>likwi-micro-services</name>
