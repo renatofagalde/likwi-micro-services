@@ -20,3 +20,11 @@ docker-compose up -d
 
 zipkin: trace
 #  in terminal(cli): docker logs zipkin
+
+
+8#_packaging_micro_services_to_runnable_jar
+    Installing Root and Individual Modules with Maven
+    run maven in root folder, mvn clean install
+
+    run all micro-services
+        run jar by jar  :-/ eca
