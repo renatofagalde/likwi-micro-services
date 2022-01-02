@@ -28,3 +28,7 @@ zipkin: trace
 
     run all micro-services
         run jar by jar  :-/ eca
+
+    fazer o pacote e publicar no docker hub
+    dentro da pasta:
+    mvn clean package -P build-docker-image
