@@ -49,6 +49,16 @@ sequencia:
     3# subir tudo: docker compose up -d
 
 
+Kubernets
+
+    Runnig kube cluster locally
+    options: minikube, kind and docker
+
+    Minikube:
+    https://minikube.sigs.k8s.io/docs/start/
+
+
+
 
 
 
