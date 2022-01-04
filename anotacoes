@@ -1,4 +1,5 @@
-
+docker ps --format=$FORMAT
+mvn clean install -P build-docker-image
 
 *** HOW CLEAN DOCKER ****
 
@@ -32,3 +33,23 @@ zipkin: trace
     fazer o pacote e publicar no docker hub
     dentro da pasta:
     mvn clean package -P build-docker-image
+
+    *** IMPORTANTE ***
+    lembrar de criar as dependencias no docker-compose,
+    por exemplo, customer depende de: zipkin, eureka-server, postgres and rabbitmq
+
+    criar o application-docker.yml usando como endereco as redes criadas no docker.
+
+
+
+sequencia:
+
+    1# docker compose down
+    2# gerar novamente: mvn clean package -P build-docker-image
+    3# subir tudo: docker compose up -d
+
+
+
+
+
+
