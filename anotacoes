@@ -1,0 +1,55 @@
+docker ps --format=$FORMAT
+mvn clean install -P build-docker-image
+
+*** HOW CLEAN DOCKER ****
+
+How to Do a Clean Restart of a Docker Instance
+If you are using Docker-Machine, make sure your are talking to the right one. Execute the command docker-machine ls to find which one is currently active. It is also recommended to always redo the command:
+eval "$(docker-machine env <docker machine name>)"
+Note: Deleting volumes will wipe out their data. Back up any data that you need before deleting a container.
+Procedure
+Stop the container(s) using the following command:
+docker-compose down
+Delete all containers using the following command:
+docker rm -f $(docker ps -a -q)
+Delete all volumes using the following command:
+docker volume rm $(docker volume ls -q)
+Restart the containers using the following command:
+docker-compose up -d
+
+*** HOW CLEAN DOCKER ****
+
+zipkin: trace
+#  in terminal(cli): docker logs zipkin
+
+
+8#_packaging_micro_services_to_runnable_jar
+    Installing Root and Individual Modules with Maven
+    run maven in root folder, mvn clean install
+
+    run all micro-services
+        run jar by jar  :-/ eca
+
+    fazer o pacote e publicar no docker hub
+    dentro da pasta:
+    mvn clean package -P build-docker-image
+
+    *** IMPORTANTE ***
+    lembrar de criar as dependencias no docker-compose,
+    por exemplo, customer depende de: zipkin, eureka-server, postgres and rabbitmq
+
+    criar o application-docker.yml usando como endereco as redes criadas no docker.
+
+
+
+sequencia:
+
+    1# docker compose down
+    2# gerar novamente: mvn clean package -P build-docker-image
+    3# subir tudo: docker compose up -d
+
+
+
+
+
+

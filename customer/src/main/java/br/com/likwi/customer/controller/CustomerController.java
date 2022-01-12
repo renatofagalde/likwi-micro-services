@@ -1,7 +1,7 @@
 package br.com.likwi.customer.controller;
 
 import br.com.likwi.customer.record.CustomerRegistrationRequest;
-import br.com.likwi.customer.record.CustomerService;
+import br.com.likwi.customer.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
