@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+data:
+  POSTGRES_DB: likwi
+  POSTGRES_USER: likwi_user
+  POSTGRES_PASSWORD: likwi_password
