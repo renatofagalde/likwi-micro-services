@@ -41,6 +41,7 @@ zipkin: trace
     criar o application-docker.yml usando como endereco as redes criadas no docker.
 
 
+    docker logs customer
 
 sequencia:
 
@@ -49,7 +50,43 @@ sequencia:
     3# subir tudo: docker compose up -d
 
 
+Kubernets
+
+    Runnig kube cluster locally
+    options: minikube, kind and docker
+
+    Minikube:
+    install
+    https://minikube.sigs.k8s.io/docs/start/
+
+    start:
+        before start, change in docker's resources memory to 6G and 20G disk
+        minikube start --memory=4g
+        minikube status
 
 
+minikube start --memory=4g
 
+install k8s
+https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
 
+    sudo mv ./kubectl /usr/local/bin/kubectl
+    sudo chown root: /usr/local/bin/kubectl
+
+    kubectl version --client
+
+    /Users/renatofagalde/Documents/programacao/desenvolvimento/workspace_intellij/likwi micro services/k8s/minikube
+    kubectl apply -f bootstrap/postgres
+
+    kubectl get pods
+    kubectl logs {{nome}}
+
+    minikube service --url rabbitmq
+    minikube service --url zipkin
+    minikube tunnel
+
+    empacotar para docker:
+    mvn clean package -P build-docker-image
+
+    enviando para o docker hub
+    docker compose pull
